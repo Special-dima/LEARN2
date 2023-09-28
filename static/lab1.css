@@ -1,0 +1,22 @@
+body {
+    background-color: aqua;
+    color: aquamarine;
+    font-size: 20pt;
+    margin: 0px;
+}
+img {
+    width: 600px;
+    padding-left: 500px;
+}
+header {
+    background-color: bisque;
+    color: blue;
+    padding: 10px;
+    font-size: 16pt;
+}
+footer {
+    background-color: blueviolet;
+    color: brown;
+    padding: 10px;
+    font-size: 16pt;
+}
