@@ -204,4 +204,13 @@ def example():
         {'author': 'Нил Стивенсон', 'nazv': 'Анафем', 'zanr': 'Фантастика', 'str': '156 страниц'},
         {'author': 'Айзек Азимов', 'nazv': 'Конец вечности', 'zanr': 'Фантастика', 'str': '356 страниц'}
         ]
-    
+    return render_template('example.html', 
+                            name=name, laba2=laba2, group=group,
+                            kurs=kurs, student=student, fruits=fruits, books=books)
+@app.route('/lab2/')
+def lab2():
+    return render_template('lab2.html')
+
+@app.route('/lab2/cake')
+def cake():
+    return render_template('cake.html')
