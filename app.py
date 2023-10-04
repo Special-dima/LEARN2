@@ -216,6 +216,6 @@ def example():
 def lab2():
     return render_template('lab2.html')
 
-@app.route('/lab2/cake')
+@app.route('/lab2/bibika')
 def cake():
-    return render_template('cake.html')
+    return render_template('bibika.html')
