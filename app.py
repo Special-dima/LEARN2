@@ -1,4 +1,4 @@
-from flask import Flask, redirect, url_for
+from flask import Flask, redirect, url_for, render_template
 app = Flask(__name__)
 
 @app.route("/")
@@ -8,23 +8,28 @@ def start():
 
 @app.route("/menu")
 def menu():
-    return """
+    return"""
 <!doctype html>
 <html>
-    <head>
-        <title>Нехороших Дмитрий Алексеевич, лабораторная 1</title>
-    </head>
-    <body>
-        <header>
-            НГТУ, ФБ, Лабораторная работа 1
-        </header>
+     <head>
+           <title>НГТУ, ФБ, Лабораторные работы</title>
+     </head>
+     <body>
+            <header>
+            НГТУ, ФБ, WEB-программирование, часть 2. Спиок лабораторных
+            </header>
 
-        <h1>web-сервер на flask</h1>
+            <ol>
+             <a href="/lab1" target="_blank" >1)Лабораторная 1</a>
+            </ol>
+            <ol>
+             <a href="/lab2/" target="_blank" >2)Лабораторная 2</a>
+            </ol>
 
-        <footer>
-            &copy; Нехороших Дмитрий Алексеевич, ФБИ-14, 3 курс, 2023
-        </footer>
-    </body>
+            <footer>
+            &copy; Нехороших Дмитрий, ФБИ-14, 3 курс, 2023
+            </footer>
+        </body>
 </html>
 """
 
