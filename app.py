@@ -178,3 +178,18 @@ def knopka():
     </body>
 </html>
 '''
+@app.route('/lab2/example')
+def example():
+    name = 'Нехороших дмитрий'
+    laba2 = 'Лабораторная работа 2'
+    group = 'ФБИ-14'
+    kurs = '3 курс'
+    student = 'Пивоварова Алина.'
+    fruits = [
+        {'name': 'яблоки', 'price': 100},
+        {'name': 'груши',  'price': 120},
+        {'name': 'апельсины', 'price': 80}, 
+        {'name': 'мандарины', 'price': 95},
+        {'name': 'манго', 'price': 321}
+        ]
+    
