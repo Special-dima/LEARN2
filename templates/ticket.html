@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+
+{% block lab %}Лабораторная работа 3{% endblock %}
+
+{% block main %}
+
+    {% if  familiya %}
+
+    <h1>Ваш билет:</h1>
+
+    <div>Ваша фамилия: {{ familiya }}</div>
+    <div>Ваше имя: {{ name }}</div>
+    <div>Ваше отчество: {{ otchestvo }}</div>
+    <div>Ваш возраст: {{ age }}</div>
+    <div>Пункт выезда: {{ start }}</div>
+    <div>Пункт назначения: {{ finish }}</div>
+    <div>Тип билета: {{ 'Детский' if tipe == 'children' else 'Взрослый' }}</div>
+    <div>Наличие багажа: {{ 'Нет' if bagaz == 'no' else 'Имеется' }}</div>
+    <div>Дата поездки: {{ data }}</div>
+    <div>Ваша полка: 
+        {% if polka == 'niz' %}
+            Нижняя
+        {% elif polka == 'nizbok' %}
+            Нижняя боковая
+        {% elif polka == 'verh' %}
+            Верхняя
+        {% else %}
+            Верхняя боковая
+        {% endif %}
+    </div>
+
+    {% else %}
+    <h1>Покупка железнодорожного билета</h1>
+    
+    <form>
+    
+        <label>Ваша фамилия:</label>
+        <div>
+            <input type="text" placeholder="какая у вас фамилия?" name="familiya" value="{{ familiya or '' }}">
+            <span class="error">{{ errors.familiya }}</span>
+        </div>
+        <label>
+
+        <label>Ваше имя:</label>
+         <div>
+            <input type="text" placeholder="как вас зовут?" name="name" value="{{ name or '' }}">
+            <span class="error">{{ errors.name }}</span>
+        </div>
+        <label>
+
+        <label>Ваше отчество:</label>
+        <div>
+            <input type="text" placeholder="какое у вас отчество?" name="otchestvo" value="{{ otchestvo or '' }}">
+            <span class="error">{{ errors.otchestvo }}</span>
+        </div>
+        <label>
+        
+        <p>
+        <div>Выберите тип билета:</div>
+        <div>
+            <select name="tipe">
+                <option value="children" {{ tipe == 'children' and 'selected' }}>Детский</option>
+                <option value="vzrosliy" {{ tipe == 'vzrosliy' and 'selected' }}>Взрослый</option>
+            </select>
+        </div>
+        </p>
+        <div>Выберите полку:</div>
+        <div>
+            <select name="polka">
+                <option value="niz" {{ polka == 'niz' and 'selected' }}>Нижняя</option>
+                <option value="verh" {{ polka == 'verh' and 'selected' }}>Верхняя</option>
+                <option value="verhbok" {{ polka == 'verhbok' and 'selected' }}>Верхняя боковая</option>
+                <option value="nozbok" {{ polka == 'nizbok' and 'selected' }}>Нижняя боковая</option>
+            </select>
+        </div>
+        
+        <div>
+        <label>У вас есть багаж?</label>
+        </div>
+        <div>
+            <select name="bagaz">
+                <option value="yes" {{ bagaz == 'yes' and 'selected' }}>Да</option>
+                <option value="no" {{ bagaz == 'no' and 'selected' }}>Нет</option>
+            </select>
+        </div>
+        <label>Ваш возраст:</label>
+        <div>
+            <input type="number"  name="age" value="{{ age or '' }}" required min="18" max="120">
+            <span class="error">{{ errors.age }}</span>
+        </div>
+
+        <label>Пункт выезда:</label>
+        <div>
+            <input type="text" placeholder="откуда отправляетесь?" name="start" value="{{ start or '' }}">
+            <span class="error">{{ errors.start }}</span>
+        </div>
+        </label>
+        <label>Пункт назначения:</label>
+        <div>
+            <input type="text" placeholder="куда отправляетесь?" name="finish" value="{{ finish or '' }}">
+            <span class="error">{{ errors.finish }}</span>
+        </div>
+        <label>
+
+        <label>Дата поездки:</label>
+        <div>
+            <input type="date" name="data" value="{{ data or '' }}">
+            <span class="error">{{ errors.data}}</span>
+        </div>
+        <label>
+
+        <div>
+            <button type="submit" class="btn">Оформить билет</button>
+        </div>
+    </form>
+    <style>
+        .error{
+            color: darkred;
+        }
+        .btn{
+            width: 300px;
+            height: 30px;
+            font-size: x-large;
+            background-color: crimson;
+            color: white;
+        }
+        .btn:hover{
+            background-color: rgb(29, 212, 120);
+        }
+    </style>
+        {% endif %}
+    {% endblock %}
