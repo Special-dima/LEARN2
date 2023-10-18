@@ -7,7 +7,6 @@ lab1 = Blueprint('lab1', __name__)
 def start():
     return redirect("/menu", code=302)
 
-
 @lab1.route("/menu")
 def menu():
     return"""
@@ -18,26 +17,25 @@ def menu():
      </head>
      <body>
             <header>
-            НГТУ, ФБ, WEB-программирование, часть 2. Спиок лабораторных
+            НГТУ, ФБ, WEB-программирование, часть 2. Спиcок лабораторных
             </header>
 
             <ol>
-             <a href="/lab1" target="_blank" >Первая лабораторная</a>
+             <a href="/lab1" target="_blank" >1)Лабораторная 1</a>
             </ol>
             <ol>
-             <a href="/lab2" target="_blank" >Вторая лабораторная</a>
+             <a href="/lab2/" target="_blank" >2)Лабораторная 2</a>
             </ol>
             <ol>
-             <a href="/lab3/" target="_blank" >Третья лабораторная</a>
+             <a href="/lab3/" target="_blank" >3)Лабораторная 3</a>
             </ol>
 
             <footer>
-            &copy; Нехороших Дмитрий Алексеевич, ФБИ-14, 3 курс, 2023
+            &copy; Нехороших Дмитрий, ФБИ-14, 3 курс, 2023
             </footer>
         </body>
 </html>
 """
-
 
 @lab1.route("/lab1")
 def lab():
@@ -45,7 +43,7 @@ def lab():
 <!doctype html>
 <html>
      <head>
-           <title>Нехороших Дмитрий АЛексеевич, лабораторная 1</title>
+           <title>Нехороших Дмитрий Алексеевич, лабораторная 1</title>
      </head>
      <body>
             <header>
@@ -58,7 +56,7 @@ def lab():
             Werkzeug, а также шаблонизатор Jinja2. Относится к категории так называемых микрофреймворков минималистичных каркасов
             веб-приложений, сознательно предоставляющих лишь самые базовые возможности.
             </p>
-            <a href="/menu">Меню</a>
+            <a href="/menu" target="_blank" >Меню</a>
             <h2>Реализованные роуты</h2>
             <ul>
                 <li>
@@ -71,18 +69,16 @@ def lab():
                 <a href="/lab1/python" target="_blank" >/lab1/python - python</a>
                 </li>
                 <li>
-                    <a href="/lab1/knopka" target="_blank" >/lab1/knopka - Кнопка</a>
+                    <a href="/lab1/lika" target="_blank" >/lab1/lika - Лика</a>
                 </li>
             </ul>
 
             <footer>
-            &copy; Дмитрий Алексеевич, ФБИ-14, 3 курс, 2023
+            &copy; Нехороших Д.А., ФБИ-14, 3 курс, 2023
             </footer>
         </body>
 </html>
 """
-
-
 @lab1.route('/lab1/oak')
 def oak():
     return'''
@@ -99,13 +95,11 @@ def oak():
           <h1>Дуб</h1>
           <img src=''' + url_for('static', filename='oak.jpg') + '''>
     <footer>
-    &copy; Нехороших Дмитрий, ФБИ-14, 3 курс, 2023
+    &copy; Нехорошмх Д.А., ФБИ-14, 3 курс, 2023
     </footer>
     </body>
 </html>
 '''
-
-
 @lab1.route('/lab1/student')
 def student():
     return'''
@@ -122,15 +116,13 @@ def student():
 
           <h1>Нехороших Дмитрий Алексеевич</h1>
 
-          <img src=''' + url_for('static', filename='logo.png') + '''>
+          <img src=''' + url_for('static', filename='logo.jpg') + '''>
     <footer>
-    &copy; Нехороших Дмитрий, ФБИ-14, 3 курс, 2023
+    &copy; Нехороших Д.А., ФБИ-14, 3 курс, 2023
     </footer>
     </body>
 </html>
 '''
-
-
 @lab1.route('/lab1/python')
 def python():
     return'''
@@ -155,16 +147,14 @@ def python():
           <p>Python - это простой в освоении, но мощный и универсальный язык сценариев,
           что делает его привлекательным для разработки приложений.</p>
 
-          <img src=''' + url_for('static', filename='python.png') + '''>
+          <img src=''' + url_for('static', filename='python.jpg') + '''>
     <footer>
-    &copy; Нехороших Дмитрий, ФБИ-14, 3 курс, 2023
+    &copy; Нехороших Д.А., ФБИ-14, 3 курс, 2023
     </footer>
     </body>
 </html>
 '''
-
-
-@lab1.route('/lab1/knopka')
+@lab1.route('/lab1/lika')
 def lika():
     return'''
     <!doctype html>
@@ -190,9 +180,9 @@ def lika():
           в течение всего дня она не упускает возможность выпросить вкусняшку и поспать, а вечером она идет на проверку своей территории. В 
           девять вечера она уже готова ко сну и не желает никого видеть.</p>
 
-          <img src=''' + url_for('static', filename='knopka.jpg') + '''>
+          <img src=''' + url_for('static', filename='lika.jpg') + '''>
     <footer>
-    &copy; Нехороших Дмитрий, ФБИ-14, 3 курс, 2023
+    &copy; Нехороших Д.А., ФБИ-14, 3 курс, 2023
     </footer>
     </body>
 </html>
