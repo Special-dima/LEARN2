@@ -8,9 +8,8 @@ def dBConnect():
     conn = psycopg2.connect(
         host="127.0.0.1",
         database = "knowledge_base",
-        user = "pivovarova_alina_base",
-        password = "12345",
-        port = 5433
+        user = "dima_knowledge_base",
+        password = "123"
     )
 
     return conn;
@@ -27,9 +26,8 @@ def main():
     conn = psycopg2.connect(
         host="127.0.0.1",
         database="knowledge_base",
-        user="pivovarova_alina_base",
-        password="12345",
-        port = 5433
+        user="dima_knowledge_base",
+        password="123"
     )
     # Получаем курсор. С помощью него мы можем выполнять SQL-запросы
     cur = conn.cursor()
