@@ -7,9 +7,10 @@ lab5 =Blueprint('lab5',__name__)
 def dBConnect():
     conn = psycopg2.connect(
         host="127.0.0.1",
-        database = "knowledge_base",
-        user = "dima_knowledge_base",
-        password = "123"
+        database = "knowledge_base_nehoroshih",
+        user = "nehoroshih_knowledge_base",
+        password = "123",
+        port = 5433
     )
 
     return conn;
@@ -25,9 +26,10 @@ def main():
     # Прописываем параметры подключения к БД
     conn = psycopg2.connect(
         host="127.0.0.1",
-        database="knowledge_base",
-        user="dima_knowledge_base",
-        password="123"
+        database="knowledge_base_nehoroshih",
+        user="nehoroshih_knowledge_base",
+        password="123",
+        port = 5433
     )
     # Получаем курсор. С помощью него мы можем выполнять SQL-запросы
     cur = conn.cursor()
@@ -50,9 +52,9 @@ def main():
 def user():
     conn = psycopg2.connect(
         host="127.0.0.1",
-        database = "knowledge_base",
-        user = "pivovarova_alina_base",
-        password = "12345",
+        database = "knowledge_base_nehoroshih",
+        user = "nehoroshih_knowledge_base",
+        password = "123",
         port = 5433
     )
     cur = conn.cursor() #создает курсор, привязанный к соединению (conn), которое уже было установлено с базой данных 
