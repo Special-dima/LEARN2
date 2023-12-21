@@ -18,7 +18,7 @@ courses = [
 #здесь список курсов
 @lab8.route('/lab8/api/courses/', methods=['GET']) 
 def get_courses():
-    return courses
+    return jsonify(courses)
 
 
 @lab8.route('/lab8/api/courses/<int:course_num>', methods=['GET'])
@@ -55,5 +55,4 @@ def add_course():
     course["created_date"] = datetime.now()  # автоматическое заполнение даты создания
     courses.append(course)
     return {"num": len(courses)-1}  # возвращение номера нового курса
-
 
