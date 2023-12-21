@@ -41,6 +41,9 @@ def menu():
             <ol>
              <a href="/lab7/" target="_blank" >7)Лабораторная 7</a>
             </ol>
+            <ol>
+             <a href="/lab8/" target="_blank" >8)Лабораторная 8</a>
+            </ol>
 
             <footer>
             &copy; Нехороших Дмитрий, ФБИ-14, 3 курс, 2023
