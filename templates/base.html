@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Нехороших Дмитрий. {% block laba2 %} / {% endblock %}</title>
     <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
+    {% if request.cookies.get('color') and request.cookies.get('back') and request.cookies.get('font') %}
+    <style>
+        body {
+            color: {{ request.cookies.get('color') }};
+            background-color: {{ request.cookies.get('back') }};
+            font-size: {{ request.cookies.get('font') }}px;
+        }
+    </style>
+    {% endif %}
+    {% block script %}{% endblock %}
 </head>
 <body>
     <header>
