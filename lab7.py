@@ -30,6 +30,13 @@ def api():
             paid = True  # Обновляем состояние оплаты после успешной оплаты
         return response
     
+    if data['method'] == 'refund':
+        if paid:  # Проверяем состояние оплаты
+            response = refund(data['params'])
+            paid = False  # Обновляем состояние оплаты после успешного возврата
+            return response
+        else:
+            return {"result": None, "error": "Оплата еще не выполнена"}
     
     abort(400) #И в конце обработаем ситуацию, если вдруг прилетел нестандартный метод
                 #– просто вернём код 400:
@@ -70,4 +77,15 @@ def pay(params):
     price = params['price']  # Используем переданную цену
 
     return {"result": f'С карты {card_num} списано {price} руб', "error": None}
+
+def refund(params):
+    card_num = params['card']
+    if len(card_num) != 16 or not str(card_num).isdigit():
+        return {"result": None, "error": "Неверный номер карты"}
+
+    cvv = params['cvv']
+    if len(cvv) != 3 or not cvv.isdigit():
+        return {"result": None, "error": "Неверный номер CVV/CVC"}
+
+    return {"result": f'Деньги возвращены на карту {card_num}', "error": None}
 
