@@ -37,3 +37,14 @@ def del_course(course_num):
     return '', 204
 
 
+#изменение существующего курса
+@lab8.route('/lab8/api/courses/<int:course_num>', methods=['PUT'])
+def put_course(course_num):
+    course = request.get_json()
+    if course_num < 0 or course_num >= len(courses):
+        abort(404) 
+    course["created_date"] = datetime.now()
+    courses[course_num] = course
+    return courses[course_num]
+
+
